@@ -6,6 +6,7 @@ using DG.Tweening;  //DOTween‚ðŽg‚¤‚Æ‚«‚Í‚±‚Ìusing‚ð“ü‚ê‚é
 
 
 
+
 public class CameraMove : MonoBehaviour
 {
 
@@ -25,39 +26,54 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
 
-        Sequence sequence = DOTween.Sequence();
+        /*Sequence sequence = DOTween.Sequence();
 
         // 3•b‚©‚¯‚Ä(5,0,0)‚ÖˆÚ“®‚·‚é
         //this.transform.DOMove(new Vector3(5f, 0f, 0f), 3f);
         sequence.Append(
-        cameraMove = this.transform.DOPath(new Vector3[] { target1.transform.position, target1_5.transform.position, target2.transform.position, target3.transform.position, target4.transform.position, target4_5.transform.position, target1.transform.position, target1.transform.position, target1_5.transform.position, target2.transform.position, target5.transform.position,target6.transform.position,target1.transform.position}, 500f, PathType.Linear).SetLookAt(0.02f)).SetEase(Ease.Linear) ;
+        cameraMove = this.transform.DOPath(new Vector3[] { target1.transform.position, target1_5.transform.position, target2.transform.position, target3.transform.position, target4.transform.position, target4_5.transform.position, target1.transform.position, target1.transform.position, target1_5.transform.position, target2.transform.position, target5.transform.position,target6.transform.position,target1.transform.position}, 600f, PathType.Linear).SetLookAt(0.01f)).SetEase(Ease.Linear) ;
         
         sequence.SetLoops(-1,LoopType.Restart);
 
-        //sequence.stop();
-        
+        //sequence.stop();*/
 
-        
-        
+        DG.Tweening.DOTween.SetTweensCapacity(tweenersCapacity: 800, sequencesCapacity: 200);
+
+
     }
 
-    public void Pause()
+    void Update()
     {
+        
+
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (pauseCount % 2 == 0)
+            if (pauseCount== 0)
+            {
+                
+
+                // 3•b‚©‚¯‚Ä(5,0,0)‚ÖˆÚ“®‚·‚é
+                //this.transform.DOMove(new Vector3(5f, 0f, 0f), 3f);
+                
+                cameraMove = this.transform.DOPath(new Vector3[] { target1.transform.position, target1_5.transform.position, target2.transform.position, target3.transform.position, target4.transform.position, target4_5.transform.position, target1.transform.position, target1.transform.position, target1_5.transform.position, target2.transform.position, target5.transform.position, target6.transform.position, target1.transform.position }, 600f, PathType.Linear).SetLookAt(0.01f);
+                cameraMove.SetEase(Ease.Linear);
+
+                cameraMove.SetLoops(-1, LoopType.Restart);
+
+            }
+            else if(pauseCount %2 ==1)
             {
                 cameraMove.Pause();
-
             }
             else
             {
                 cameraMove.Play();
             }
             pauseCount++;
-            Debug.Log("a");
+           
 
         }
-
     }
+
+    
 }

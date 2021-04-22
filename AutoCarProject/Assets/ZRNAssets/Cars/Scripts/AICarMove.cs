@@ -30,11 +30,11 @@ public class AICarMove : MonoBehaviour {
 
 		navMeshAgentCompornent.speed = 0.0f;
 		targetAICar.GetComponent<Animation>().Play("00_Stop");
-		StartCoroutine(startCar(3.0f));
+		StartCoroutine(StartCar(3.0f));
 
 	}
 
-	IEnumerator startCar (float startDelayTime) {
+	IEnumerator StartCar (float startDelayTime) {
 
 		navMeshAgentCompornent.speed = 0.0f;
 		targetAICar.GetComponent<Animation>().Play("00_Stop");
@@ -54,9 +54,9 @@ public class AICarMove : MonoBehaviour {
 
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 
-		if (navMeshAgentCompornent.remainingDistance < 0.1f)
+		if(navMeshAgentCompornent.remainingDistance < 0.1f)
 		{
 			targetNavMeshObjectNow ++;
 			if (targetNavMeshObjectNow <= targetNavMeshObjectCounts)
