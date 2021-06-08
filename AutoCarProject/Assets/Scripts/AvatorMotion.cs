@@ -30,9 +30,10 @@ public class AvatorMotion : MonoBehaviour
     void Update()
     {
         Animator anim = GetComponent<Animator>();
+        //charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 0f);
         if(InArea)
         {
-            charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 20f);
+            charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 400f);
             anim.SetBool("IsWalk", true);
         }
         else
@@ -72,7 +73,11 @@ public class AvatorMotion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        InArea = true;
+        
+        if (other.gameObject.tag == "Player")
+        {
+            InArea = true;
+        }
     }
     
 }
