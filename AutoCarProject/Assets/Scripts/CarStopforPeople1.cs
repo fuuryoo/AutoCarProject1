@@ -1,22 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;  //DOTweenを使うときはこのusingを入れる
+using DG.Tweening;
 
-public class AvatorMotion : MonoBehaviour
+public class CarStopforPeople1 : MonoBehaviour
 {
 
-    
-    CharacterController Controller;
-    Transform Target;
-    
+
+    [SerializeField] bool Charaselect1;
+    /*[SerializeField] bool Charaselect2 = false;
+    [SerializeField] bool Charaselect3 = false;
+    [SerializeField] bool Charaselect4 = false;
+    [SerializeField] bool Charaselect5 = false;*/
+
+   
+
     public GameObject chara1target1;
 
-    
-    bool InArea = false;
-    int DetecDist = 1;
 
-    Tween charaMove = null;
+    bool InArea = false;
+    
+
+    Tween SpecialMove = null;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +38,18 @@ public class AvatorMotion : MonoBehaviour
         //charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 0f);
         if (InArea)
         {
-            charaMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 400f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine).SetLookAt(0.01f);
-            anim.SetBool("IsWalk", true);
+            if (Charaselect1)
+            {
+                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 50f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
+                anim.SetBool("IsWalk", true);
+            }
             
+
         }
         else
         {
             anim.SetBool("IsWalk", false);
-            this.charaMove.Kill();
+            this.SpecialMove.Kill();
         }
 
         /*if (Input.GetKeyDown("KeyCode.D"))
@@ -56,7 +65,7 @@ public class AvatorMotion : MonoBehaviour
         Vector3 direction = Target.position - this.transform.position;
         direction = direction.normalized;
 
-        Vector3 Apos = this.transform.position;z
+        Vector3 Apos = this.transform.position;
         Vector3 Bpos = Target.transform.position;
         float distance = Vector3.Distance(Apos, Bpos);
 
@@ -76,7 +85,7 @@ public class AvatorMotion : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        
+
         if (other.gameObject.tag == "Player")
         {
             InArea = true;
@@ -90,5 +99,5 @@ public class AvatorMotion : MonoBehaviour
             InArea = false;
         }
     }
-    
+
 }
