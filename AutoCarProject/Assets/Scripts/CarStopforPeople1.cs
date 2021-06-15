@@ -40,7 +40,7 @@ public class CarStopforPeople1 : MonoBehaviour
         {
             if (Charaselect1)
             {
-                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 50f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
+                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 55f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
                 anim.SetBool("IsWalk", true);
             }
             

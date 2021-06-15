@@ -6,15 +6,13 @@ using DG.Tweening;  //DOTweenを使うときはこのusingを入れる
 public class AvatorMotion : MonoBehaviour
 {
 
-    
-    CharacterController Controller;
-    Transform Target;
+   
     
     public GameObject chara1target1;
 
     
     bool InArea = false;
-    int DetecDist = 1;
+    
 
     Tween charaMove = null;
 
@@ -22,8 +20,8 @@ public class AvatorMotion : MonoBehaviour
     void Start()
     {
 
-
-        
+        charaMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 400f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine).SetLookAt(0.01f);
+        charaMove.Pause();
     }
 
     // Update is called once per frame
@@ -33,14 +31,14 @@ public class AvatorMotion : MonoBehaviour
         //charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 0f);
         if (InArea)
         {
-            charaMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 400f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine).SetLookAt(0.01f);
+            charaMove.Play();
             anim.SetBool("IsWalk", true);
             
         }
         else
         {
             anim.SetBool("IsWalk", false);
-            this.charaMove.Kill();
+            this.charaMove.Pause();
         }
 
         /*if (Input.GetKeyDown("KeyCode.D"))

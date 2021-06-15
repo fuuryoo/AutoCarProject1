@@ -56,7 +56,7 @@ public class AICarMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if(navMeshAgentCompornent.remainingDistance < 0.1f)
+		/*if(navMeshAgentCompornent.remainingDistance < 0.1f)
 		{
 			targetNavMeshObjectNow ++;
 			if (targetNavMeshObjectNow <= targetNavMeshObjectCounts)
@@ -68,7 +68,7 @@ public class AICarMove : MonoBehaviour {
 				targetNavMeshObjectNow = 1;
 				navMeshAgentCompornent.SetDestination(targetNavMeshObjects[targetNavMeshObjectNow].transform.localPosition);
 			}
-		}
+		}*/
 	
 	}
 }
