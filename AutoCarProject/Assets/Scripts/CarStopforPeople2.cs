@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CarStopforPeople1 : MonoBehaviour
+public class CarStopforPeople2 : MonoBehaviour
 {
 
 
-    
-   
 
-    public GameObject chara1target1;
-    
+
+
+    public GameObject chara1target2;
+
 
 
     bool InArea = false;
-    
+
 
     Tween SpecialMove = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
 
 
     }
@@ -34,9 +34,9 @@ public class CarStopforPeople1 : MonoBehaviour
         //charaMove = this.transform.DOPath(new Vector3[] {chara1target1.transform.position}, 0f);
         if (InArea)
         {
-            if (TriggarManagement.Triggar1)
+            if (TriggarManagement.Triggar2)
             {
-                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 20f).SetDelay(7f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
+                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target2.transform.position }, 10f).SetDelay(8f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
                 anim.SetBool("IsWalk", true);
             }
 
