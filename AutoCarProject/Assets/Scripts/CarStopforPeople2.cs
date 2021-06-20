@@ -35,8 +35,9 @@ public class CarStopforPeople2 : MonoBehaviour
         if (InArea)
         {
             if (TriggarManagement.Triggar2)
-            {
-                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target2.transform.position }, 10f).SetDelay(8f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
+            {   
+                ProcessTimer.Start();
+                SpecialMove = this.transform.DOPath(new Vector3[] { chara1target2.transform.position }, 10f).SetDelay(10f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
                 anim.SetBool("IsWalk", true);
             }
 

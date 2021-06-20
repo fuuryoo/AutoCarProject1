@@ -36,6 +36,7 @@ public class CarStopforPeople1 : MonoBehaviour
         {
             if (TriggarManagement.Triggar1)
             {
+                ProcessTimer.Start();
                 SpecialMove = this.transform.DOPath(new Vector3[] { chara1target1.transform.position }, 20f).SetDelay(7f).SetLoops(-1, LoopType.Restart).SetEase(Ease.OutSine);
                 anim.SetBool("IsWalk", true);
             }
