@@ -54,7 +54,8 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         
-
+        
+       
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (pauseCount== 0)
@@ -70,7 +71,7 @@ public class CameraMove : MonoBehaviour
                 cameraMove.SetLoops(-1, LoopType.Restart);
 
             }
-            else if(pauseCount %2 ==1)
+            if(pauseCount %2 ==1 )
             {
                 cameraMove.Pause();
                 float elapsed = ProcessTimer.Stop ();
@@ -84,8 +85,34 @@ public class CameraMove : MonoBehaviour
                 
             }
             pauseCount++;
+            Debug.Log(LogitechPath.stopflag);
             
 
+            /*if(LogitechPath.stopflag == 2)
+            {
+                cameraMove.Pause();
+                float elapsed = ProcessTimer.Stop();
+
+                Debug.Log(elapsed);
+            }
+
+            if (LogitechPath.stopflag == 1)
+            {
+                cameraMove.Play();
+            }
+            */
+        }
+
+        if(LogitechPath.stopflag == 2)
+        {
+            cameraMove.Pause();
+            float elapsed = ProcessTimer.Stop();
+
+            Debug.Log(elapsed);
+        }
+        else
+        {
+            cameraMove.Play();
         }
     }
 
