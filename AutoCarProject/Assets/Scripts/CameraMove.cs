@@ -74,8 +74,9 @@ public class CameraMove : MonoBehaviour
             {
                 cameraMove.Pause();
                 float elapsed = ProcessTimer.Stop ();
-                
-                
+
+                Debug.Log(elapsed);
+
             }
             else
             {
@@ -83,7 +84,7 @@ public class CameraMove : MonoBehaviour
                 
             }
             pauseCount++;
-           
+            
 
         }
     }
