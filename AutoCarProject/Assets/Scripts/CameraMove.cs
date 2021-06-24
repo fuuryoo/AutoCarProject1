@@ -85,7 +85,7 @@ public class CameraMove : MonoBehaviour
                 
             }
             pauseCount++;
-            Debug.Log(LogitechPath.stopflag);
+           
             
 
             /*if(LogitechPath.stopflag == 2)
@@ -103,7 +103,7 @@ public class CameraMove : MonoBehaviour
             */
         }
 
-        if(LogitechPath.stopflag == 2)
+        /*if(LogitechPath.stopflag == 2)
         {
             cameraMove.Pause();
             float elapsed = ProcessTimer.Stop();
@@ -113,7 +113,7 @@ public class CameraMove : MonoBehaviour
         else
         {
             cameraMove.Play();
-        }
+        }*/
     }
 
     
